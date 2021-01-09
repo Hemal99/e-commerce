@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Product from '../components/Product'; 
+import MessageBox from '../components/MessageBox';
+import LoadingBox from '../components/LoadingBox';
 
 
 export default function HomeScreen() {
 const [products /**current state value eka */,setProducts/**setProducts kiyanne function ekak current state eka wenas karanna ona unama use karana eka this.sestate() wage */]  = useState([]); //reacthooks t manage state They let you use state and other React features without writing a class.
 //useState is a Hook that lets you add React state to function components
 //When would I use a Hook? If you write a function component and realize you need to add some state to it, previously you had to convert it to a class. Now you can use a Hook inside the existing function component. We’re going to do that right now!
+const [ loading,setLoading ] = useState(false);
+const [ error,setError ] = useState(false); //default error is false becuase there is no error at the moment
 
 
 // Similar to componentDidMount and componentDidUpdate:
 useEffect(() => {
   const fetchData= async ()=>{
-    const {data} = await axios.get('/api/products');
-      console.log(data);                                         //data in backend will be transfer into frontend
-    setProducts(data);//meka kalata passe [products] array eka backend eken ena products wla data store wenwaS
+      try{
+        setLoading(true);
+        const {data} = await axios.get('/api/products');
+        console.log(data); 
+        setLoading(false);                                        //data in backend will be transfer into frontend
+        setProducts(data);//meka kalata passe [products] array eka backend eken ena products wla data store wenwaS
+      } catch(err){
+        setError(err.message);
+        setLoading(false);
+      }
+
+   
   };
   fetchData();
  
@@ -25,11 +38,15 @@ useEffect(() => {
 
 
     return (
-        <div className="row center">
-          {
-            products.map((product)=>(
-             <Product key={product._id} product={product} />
-            ))
+        <div>
+          { loading?(<LoadingBox></LoadingBox>)
+          :error?(<MessageBox varient="danger">{error}</MessageBox>)
+          :(
+            <div className="row center">
+                {products.map((product)=>(
+               <Product key={product._id} product={product} />))}
+            </div>
+          )
           }
       
         </div> 
