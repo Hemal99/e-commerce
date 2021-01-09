@@ -40,7 +40,7 @@ useEffect(() => {
     return (
         <div>
           { loading?(<LoadingBox></LoadingBox>)
-          :error?(<MessageBox varient="danger">{error}</MessageBox>)
+          :error?(<MessageBox variant="danger">{error}</MessageBox>)
           :(
             <div className="row center">
                 {products.map((product)=>(
