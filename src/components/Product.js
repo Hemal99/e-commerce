@@ -5,7 +5,7 @@ export default function Product(props) {
     const {product} =props; //destructure -extract product from props 
     return (
         <div key={product._id} /*map ekata passe ena palaweni element ekata key ekak one*/className="card">   
-        <a href="product.html">
+        <a href={`/product/${product._id}`}>
            <img className="medium" src={product.image} alt=""   />
          </a>
          <div className="card-body">
