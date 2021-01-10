@@ -66,10 +66,18 @@ ul{
 li{
   margin-top: 1rem;
 }
+
+input:hover, 
+select:hover,
+textarea:hover,
 button:hover{
   border: 0.1rem #404040 solid;
 }
 
+
+input, 
+select,
+textarea,
 button{
   padding: 1rem;
   border-radius: 0.5rem;
@@ -81,6 +89,12 @@ button{
   background-color:#f8f8f8 ;
   cursor: pointer;/*cursor eka pointer ekak wenwa*/
 }
+
+button{
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
 button.primary{
   background-color: #f0c040;
 }
