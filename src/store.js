@@ -1,13 +1,16 @@
 import  thunk from 'redux-thunk';
-import { applyMiddleware, compose, createStore } from 'redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import data from './data'
+import productListReducer from './reducers/productReducers';
 
 const initialState={}
 
 //reducer is a function that accepts two parameters state and action and returns new state
-const reducer=(state,action)=>{
-    return {products:data.products}
-}
+const reducer=combineReducers({//compine reducer eka parameter ekak widiyta object ekak gannawa e object eken tamai reducers la store ekata introduce karanne
+    productList : productListReducer,
+    
+
+})
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
  //createStore() accepts  parameters reducer and initialState
