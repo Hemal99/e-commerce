@@ -63,36 +63,43 @@ export default function ProductScreen(props) {
                             <li>
                                 <div className='row'>
                                    <div>Status</div>
-                                   <div>{(product.countInStock>0)?<span className="success">In stock</span>:
+                                   <div> 
+                                       {(product.countInStock>0)?<span className="success">In stock</span>:
                                     (<span className="error">Unavailable</span>)
                                    }</div> 
                                 </div>
                             </li>
-                            
-                                <React.Fragment>
-                                    <li>
-                                        <div className="row">
-                                            <div>
-                                                Qty
-                                            </div>
-                                            <div>
-                                                <select value={qty} onChange={e=>setQty(e.target.value)}>
-                                                    {//meke countInstock=5 nm me function eken arraye ekak return karana [0,1,2,3,4]
-                                                        [...Array(product.countInStock).keys()].map(x=>(// **************react wala rule ekak tiyna map function eken ena first element ekata key ekak danna one
-                                                            <option key={x+1} value={x+1}>{x+1}</option>//x+1 danne 0->4 ,1->5 karanna
-                                                        ))
-                                                    }
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <button className="primary block" onClick={addToCartHandler}>
-                                            Add to Cart
-                                        </button>
-                                    </li>
-                                </React.Fragment>
-                          
+                    {product.countInStock > 0 && (
+                    <>
+                      <li>
+                        <div className="row">
+                          <div>Qty</div>
+                          <div>
+                            <select
+                              value={qty}
+                              onChange={(e) => setQty(e.target.value)}
+                            >
+                              {[...Array(product.countInStock).keys()].map(
+                                (x) => (
+                                  <option key={x + 1} value={x + 1}>
+                                    {x + 1}
+                                  </option>
+                                )
+                              )}
+                            </select>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <button
+                          onClick={addToCartHandler}
+                          className="primary block"
+                        >
+                          Add to Cart
+                        </button>
+                      </li>
+                    </>
+                  )}
                         </ul>
                     </div> 
                 </div>
