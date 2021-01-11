@@ -224,3 +224,8 @@ img.large {
   color: #a02020;
   background-color: #ffe0e0e0;
 }
+
+.alert-primary{
+  color:darkblue;
+  background-color: lightblue;
+}

@@ -1,4 +1,4 @@
-import { CART_ADD_ITEM } from "../constants/cartConstant";
+import { CART_ADD_ITEM, CART_REMOVE_ITEM } from "../constants/cartConstant";
 
 export const cartReducer =(state={ cartItems:[]},action)=>{
     switch(action.type){
@@ -13,6 +13,10 @@ export const cartReducer =(state={ cartItems:[]},action)=>{
             }else{
                 return {...state,cartItems:[...state.cartItems,item]}//aluth item eka cartItems kiyana array eke antimata add wenwa
             }
+
+        case CART_REMOVE_ITEM:
+            return {...state,cartItems:state.cartItems.filter(x=>x.product!==action.payload)//methana wenne remove karana id eka tiyana item eka arenna anith ewa tika subarray ekakta dala e array eka return karanwa
+            };
 
         default:
             return state;
