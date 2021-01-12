@@ -3,7 +3,7 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import {productListReducer /**warahan danne meka default export eke neme nm function ekak nm (./reducers/productReducers meke ekakta wada ewa export wenwa nm )  */} from './reducers/productReducers';
 import {productDetailsReducer} from './reducers/productReducers'; 
 import { cartReducer } from './reducers/cartReducers';
-import { userSigninReducer } from './reducers/userReducers';
+import { userRegisterReducer, userSigninReducer } from './reducers/userReducers';
 
 
 const initialState={
@@ -22,6 +22,7 @@ const reducer=combineReducers({//compine reducer eka parameter ekak widiyta obje
     productDetails:productDetailsReducer,
     cart:cartReducer,
     userSignin:userSigninReducer,
+    userRegister:userRegisterReducer
 
 });
 
