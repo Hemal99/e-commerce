@@ -229,3 +229,20 @@ img.large {
   color:darkblue;
   background-color: lightblue;
 }
+
+/*Form*/
+.form{
+  max-width:60rem;
+  margin:0 auto;
+}
+
+.form > div{
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.form label {
+  margin: 1 rem;
+  display: block ;
+}
