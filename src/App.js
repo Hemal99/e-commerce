@@ -2,10 +2,12 @@ import React  from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {BrowserRouter ,Link,Route} from 'react-router-dom'
 import { signout } from './actions/userActions';
+
 import CartScreen from './Screens/CartScreen';
 import HomeScreen from './Screens/HomeScreen';
 import ProductScreen from './Screens/ProductScreen';
 import RegisterScreen from './Screens/RegisterScreen';
+import ShippingAddressScreen from './Screens/ShippingAddressScreen';
 import SigninScreen from './Screens/SigninScreen';
 
 function App() {
@@ -59,6 +61,7 @@ function App() {
         <Route path='/product/:id' component={ProductScreen} ></Route>
         <Route path="/signin" component={SigninScreen}></Route>
         <Route path="/register" component={RegisterScreen}></Route>
+        <Route path="/shipping" component={ShippingAddressScreen}></Route>
         <Route path='/' component={HomeScreen} exact></Route>
       </main>
       <footer className="row center">All right reserved</footer>

@@ -245,11 +245,12 @@ img.large {
 .form > div{
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  margin: 2rem;
+ 
 }
 
 .form label {
-  margin: 1 rem;
+  margin: 2 rem;
   display: block ;
 }
 
@@ -277,4 +278,16 @@ img.large {
   display: block;
 }
 
+/*Checkout Steps*/
+.checkout-steps > div{
+  border-top:0.3rem #c0c0c0 solid;
+  color:#c0c0c0;
+  flex:1;
+  padding: 1rem;
+}
 
+.checkout-steps  > div.active{
+  border-top-color: #f08000;
+  color: #f0800f;
+  font-weight: bold;
+}
